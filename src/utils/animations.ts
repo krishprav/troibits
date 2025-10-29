@@ -1,4 +1,4 @@
-import gsap from "gsap";
+import gsap, { type Timeline } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import * as Three from "three";
 
@@ -17,7 +17,7 @@ export const animateWithGsap = (target: string, animationProps: gsap.TweenVars, 
 };
 
 export const animateWithGsapTimeline = (
-  timeline: gsap.core.Timeline,
+  timeline: Timeline,
   rotationRef: React.RefObject<Three.Group>,
   rotationState: number,
   firstTarget: string,
@@ -30,7 +30,7 @@ export const animateWithGsapTimeline = (
     ease: "power2.inOut",
   });
 
-  timeline.to(
+  (timeline as unknown as any).to(
     firstTarget,
     {
       ...animationProps,
@@ -39,7 +39,7 @@ export const animateWithGsapTimeline = (
     "<",
   );
 
-  timeline.to(
+  (timeline as unknown as any).to(
     secondTarget,
     {
       ...animationProps,

@@ -15,7 +15,7 @@ const PhoneModel = () => {
 
   const cameraControl = useRef();
   const phoneRef = useRef<Three.Group>(new Three.Group());
-  const [rotation, setRotation] = useState(0);
+  const [, setRotation] = useState(0);
 
   useGSAP(() => {
     gsap.to("#heading", { y: 0, opacity: 1 });
